@@ -2,22 +2,47 @@
  * Created by Jon on 12/03/16.
  */
 
-const Path = require('path');
-const Hapi = require('hapi');
-const Inert = require('inert');
 
-const server = new Hapi.Server({
-  connections: {
-    routes: {
-      files: {
-        relativeTo: Path.join(__dirname, 'public')
-      }
+// wrap in IIFE, just to be tidy
+(() => {
+  const Path = require('path');
+  const Hapi = require('hapi');
+  const Inert = require('inert');
+
+  var port = 3000;
+
+  if (process.env.NODE_ENV !== undefined) {
+    console.error("NODE_ENV exists");
+
+    if (process.env.NODE_ENV === "production") {
+      console.error("NODE_ENV = production");
+
+      port = process.env.PORT;
+    }
+    else if (process.env.NODE_ENV === "development") {
+      console.error("NODE_ENV = development");
+    }
+    else {
+      console.error("NODE_ENV = other");
     }
   }
-});
-server.connection({ port: 3000 });
+  else {
+    console.error("no NODE_ENV found");
+  }
 
-server.register(Inert, () => {});
+  const server = new Hapi.Server({
+    connections: {
+      routes: {
+        files: {
+          relativeTo: Path.join(__dirname, 'public')
+        }
+      }
+    }
+  });
+  server.connection({port: port});
+
+  server.register(Inert, () => {
+  });
 
 //server.route({
 //  method: 'GET',
@@ -39,19 +64,20 @@ server.register(Inert, () => {});
 //  }
 //});
 
-server.route({
-  method: 'GET',
-  path: '/elm',
-  handler: {
-    file: 'elm/elmPage1.html'
-  }
-});
+  server.route({
+    method: 'GET',
+    path: '/elm',
+    handler: {
+      file: 'elm/elmPage1.html'
+    }
+  });
 
-server.start((err) => {
+  server.start((err) => {
 
-  if (err) {
-    throw err;
-  }
+    if (err) {
+      throw err;
+    }
 
-  console.log('Server running at:', server.info.uri);
-});
+    console.log('Server running at:', server.info.uri);
+  });
+})();
