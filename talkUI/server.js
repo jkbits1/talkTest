@@ -82,6 +82,14 @@
 
   server.route({
     method: 'GET',
+    path: '/rxjs',
+    handler: {
+      file: 'rxjs/index.html'
+    }
+  });
+
+  server.route({
+    method: 'GET',
     path: '/{param*}',
     handler: {
       directory: {
