@@ -72,6 +72,26 @@
     }
   });
 
+  server.route({
+    method: 'GET',
+    path: '/elm2',
+    handler: {
+      file: 'elm/puzzle2.html'
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+      directory: {
+        path: '.',
+        redirectToSlash: true,
+        index: true
+      }
+    }
+  });
+
   server.start((err) => {
 
     if (err) {
