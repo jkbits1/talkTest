@@ -1,9 +1,6 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title>
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <style>html,head,body { padding:0; margin:0; }
-body { font-family: calibri, helvetica, arial, sans-serif; }</style>
-  <script type="text/javascript">var Elm = Elm || { Native: {} };Elm.Array = Elm.Array || {};
+<html><head><meta charset="UTF-8"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><title>Main</title><style>html,head,body { padding:0; margin:0; }
+body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">var Elm = Elm || { Native: {} };Elm.Array = Elm.Array || {};
 Elm.Array.make = function (_elm) {
    "use strict";
    _elm.Array = _elm.Array || {};
@@ -4302,12 +4299,16 @@ Elm.Main.make = function (_elm) {
                            ,_4: {ctor: "_Tuple2"
                                 ,_0: _L.fromArray([1])
                                 ,_1: _L.fromArray([_L.fromArray([1])])}}};
-   var initialStates = {ctor: "_Tuple5"
-                       ,_0: false
-                       ,_1: false
-                       ,_2: false
-                       ,_3: false
-                       ,_4: false};
+   var initialStates = _L.fromArray([false
+                                    ,false
+                                    ,false
+                                    ,false
+                                    ,false
+                                    ,false
+                                    ,false
+                                    ,false
+                                    ,false
+                                    ,false]);
    var initialInputs = {ctor: "_Tuple5"
                        ,_0: 0
                        ,_1: "1,2,3"
@@ -4319,263 +4320,6 @@ Elm.Main.make = function (_elm) {
                            ,_1: initialInputs
                            ,_2: initialStates
                            ,_3: initialCalcs};
-   var updateModel = F2(function (update,
-   _v0) {
-      return function () {
-         switch (_v0.ctor)
-         {case "_Tuple4":
-            switch (_v0._1.ctor)
-              {case "_Tuple5":
-                 switch (_v0._2.ctor)
-                   {case "_Tuple5":
-                      return function () {
-                           var tailHistory = A2($Maybe.withDefault,
-                           _L.fromArray([]),
-                           $List.tail(_v0._0));
-                           var createModel = F3(function (_v16,
-                           buttonStates,
-                           forward) {
-                              return function () {
-                                 switch (_v16.ctor)
-                                 {case "_Tuple5":
-                                    return function () {
-                                         var inputs = {ctor: "_Tuple5"
-                                                      ,_0: _v16._0
-                                                      ,_1: _v16._1
-                                                      ,_2: _v16._2
-                                                      ,_3: _v16._3
-                                                      ,_4: _v16._4};
-                                         var ansLoop = $PuzzleModule.makeAnsLoop(_v16._4);
-                                         var thrLoop = $PuzzleModule.makeThrLoop(_v16._3);
-                                         var secLoop = $PuzzleModule.makeSecLoop(_v16._2);
-                                         var answers = $PuzzleModule.wheelPositionFromString(_v16._4);
-                                         var first = $PuzzleModule.wheelPositionFromString(_v16._1);
-                                         var newCalcs = {ctor: "_Tuple7"
-                                                        ,_0: first
-                                                        ,_1: secLoop
-                                                        ,_2: thrLoop
-                                                        ,_3: ansLoop
-                                                        ,_4: A2($PuzzleModule.twoWheelPerms,
-                                                        first,
-                                                        secLoop)
-                                                        ,_5: A3($PuzzleModule.threeLoopPerms,
-                                                        first,
-                                                        secLoop,
-                                                        thrLoop)
-                                                        ,_6: {ctor: "_Tuple5"
-                                                             ,_0: A3($PuzzleModule.answersPlusPerm,
-                                                             first,
-                                                             secLoop,
-                                                             thrLoop)
-                                                             ,_1: A4($PuzzleModule.findSpecificAnswer,
-                                                             first,
-                                                             secLoop,
-                                                             thrLoop,
-                                                             ansLoop)
-                                                             ,_2: A3($PuzzleModule.answersPermsPlusList,
-                                                             first,
-                                                             secLoop,
-                                                             thrLoop)
-                                                             ,_3: A4($PuzzleModule.displaySpecificAnswers,
-                                                             first,
-                                                             secLoop,
-                                                             thrLoop,
-                                                             answers)
-                                                             ,_4: A4($PuzzleModule.findAnswerLazy3,
-                                                             first,
-                                                             secLoop,
-                                                             thrLoop,
-                                                             ansLoop)}};
-                                         var newHistory = _U.eq(forward,
-                                         true) ? A2($List._op["::"],
-                                         {ctor: "_Tuple2"
-                                         ,_0: inputs
-                                         ,_1: buttonStates},
-                                         _v0._0) : tailHistory;
-                                         return {ctor: "_Tuple4"
-                                                ,_0: newHistory
-                                                ,_1: inputs
-                                                ,_2: buttonStates
-                                                ,_3: newCalcs};
-                                      }();}
-                                 _U.badCase($moduleName,
-                                 "between lines 402 and 422");
-                              }();
-                           });
-                           var $ = A2($Maybe.withDefault,
-                           {ctor: "_Tuple2"
-                           ,_0: initialInputs
-                           ,_1: initialStates},
-                           $List.head(_v0._0)),
-                           inputs = $._0,
-                           states = $._1;
-                           return function () {
-                              switch (update.ctor)
-                              {case "Add":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0 + 1
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: $Basics.not(_v0._2._0)
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "Back":
-                                 return A3(createModel,
-                                   inputs,
-                                   states,
-                                   false);
-                                 case "Circle2Field":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0
-                                   ,_1: _v0._1._1
-                                   ,_2: update._0
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "Circle3Field":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: update._0
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "Circle4Field":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: update._0},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "NoOp":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "Remove":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0 - 1
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: true
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "ShowLoop2":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0 + 1
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: $Basics.not(_v0._2._1)
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "ShowLoop3":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0 + 1
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: $Basics.not(_v0._2._2)
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "ShowLoopAns":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0 + 1
-                                   ,_1: _v0._1._1
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: $Basics.not(_v0._2._3)
-                                   ,_4: _v0._2._4},
-                                   true);
-                                 case "UpdateField":
-                                 return A3(createModel,
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._1._0
-                                   ,_1: update._0
-                                   ,_2: _v0._1._2
-                                   ,_3: _v0._1._3
-                                   ,_4: _v0._1._4},
-                                   {ctor: "_Tuple5"
-                                   ,_0: _v0._2._0
-                                   ,_1: _v0._2._1
-                                   ,_2: _v0._2._2
-                                   ,_3: _v0._2._3
-                                   ,_4: _v0._2._4},
-                                   true);}
-                              _U.badCase($moduleName,
-                              "between lines 424 and 438");
-                           }();
-                        }();}
-                   break;}
-              break;}
-         _U.badCase($moduleName,
-         "between lines 396 and 438");
-      }();
-   });
    var displayStyle = function (show) {
       return function () {
          switch (show)
@@ -4588,9 +4332,26 @@ Elm.Main.make = function (_elm) {
                                  ,_0: "display"
                                  ,_1: "block"}]);}
          _U.badCase($moduleName,
-         "between lines 225 and 227");
+         "between lines 254 and 256");
       }();
    };
+   var infoRow = F3(function (label,
+   info,
+   displayState) {
+      return A2($Html.div,
+      _L.fromArray([$Html$Attributes.$class("row")
+                   ,$Html$Attributes.style(A2($Basics._op["++"],
+                   _L.fromArray([{ctor: "_Tuple2"
+                                 ,_0: "margin-top"
+                                 ,_1: "10px"}]),
+                   displayStyle(displayState)))]),
+      _L.fromArray([A2($Html.div,
+                   _L.fromArray([$Html$Attributes.$class("col-sm-2")]),
+                   _L.fromArray([$Html.text(label)]))
+                   ,A2($Html.div,
+                   _L.fromArray([$Html$Attributes.$class("col-sm-8")]),
+                   _L.fromArray([$Html.text(info)]))]));
+   });
    var textStyle = _L.fromArray([{ctor: "_Tuple2"
                                  ,_0: "width"
                                  ,_1: "100%"}
@@ -4717,6 +4478,11 @@ Elm.Main.make = function (_elm) {
                                                                  ,{ctor: "_Tuple2"
                                                                   ,_0: "btn-default"
                                                                   ,_1: true}]));
+   var ShowState = {ctor: "ShowState"};
+   var ShowLazyAns = {ctor: "ShowLazyAns"};
+   var ShowAns = {ctor: "ShowAns"};
+   var ShowPerms3 = {ctor: "ShowPerms3"};
+   var ShowPerms2 = {ctor: "ShowPerms2"};
    var ShowLoopAns = {ctor: "ShowLoopAns"};
    var ShowLoop3 = {ctor: "ShowLoop3"};
    var ShowLoop2 = {ctor: "ShowLoop2"};
@@ -4730,6 +4496,10 @@ Elm.Main.make = function (_elm) {
    };
    var Circle2Field = function (a) {
       return {ctor: "Circle2Field"
+             ,_0: a};
+   };
+   var Circle1Field = function (a) {
+      return {ctor: "Circle1Field"
              ,_0: a};
    };
    var UpdateField = function (a) {
@@ -4746,18 +4516,30 @@ Elm.Main.make = function (_elm) {
    };
    var NoOp = {ctor: "NoOp"};
    var updatesChnl = $Signal.mailbox(NoOp);
-   var addButton = A2($Html.button,
-   _L.fromArray([buttonClassList
-                ,A2($Html$Events.onClick,
-                updatesChnl.address,
-                Add(1))]),
-   _L.fromArray([$Html.text("Show Answers")]));
-   var backButton = A2($Html.button,
-   _L.fromArray([buttonClassList
-                ,A2($Html$Events.onClick,
-                updatesChnl.address,
-                Back)]),
-   _L.fromArray([$Html.text("Back")]));
+   var uiButton = F2(function (action,
+   label) {
+      return A2($Html.button,
+      _L.fromArray([buttonClassList
+                   ,A2($Html$Events.onClick,
+                   updatesChnl.address,
+                   action)]),
+      _L.fromArray([$Html.text(label)]));
+   });
+   var answersButton = A2(uiButton,
+   ShowAns,
+   "Show Answers");
+   var backButton = A2(uiButton,
+   Back,
+   "Step Back");
+   var stateButton = A2(uiButton,
+   ShowState,
+   "Show State");
+   var perms2Button = A2(uiButton,
+   ShowPerms2,
+   "Show Perms 2");
+   var perms3Button = A2(uiButton,
+   ShowPerms3,
+   "Show Perms 3");
    var showLoopButton = F3(function (labels,
    hide,
    action) {
@@ -4788,7 +4570,10 @@ Elm.Main.make = function (_elm) {
                                                          ,_0: "margin-top"
                                                          ,_1: "10px"}]))]),
       _L.fromArray([A2($Html.div,
-                   _L.fromArray([$Html$Attributes.$class("col-sm-2")]),
+                   _L.fromArray([$Html$Attributes.$class("col-sm-2")
+                                ,$Html$Attributes.style(_L.fromArray([{ctor: "_Tuple2"
+                                                                      ,_0: "font-weight"
+                                                                      ,_1: "700"}]))]),
                    _L.fromArray([$Html.text(wheelLabel)]))
                    ,A2($Html.div,
                    _L.fromArray([$Html$Attributes.$class("col-sm-2")]),
@@ -4803,205 +4588,476 @@ Elm.Main.make = function (_elm) {
                    action)]))
                    ,A2($Html.div,
                    _L.fromArray([$Html$Attributes.$class("col-sm-2")
-                                ,$Html$Attributes.style(displayStyle(hide))]),
+                                ,$Html$Attributes.style(A2($Basics._op["++"],
+                                displayStyle(hide),
+                                _L.fromArray([{ctor: "_Tuple2"
+                                              ,_0: "font-weight"
+                                              ,_1: "700"}])))]),
                    _L.fromArray([$Html.text(loopLabel)]))
                    ,A2($Html.div,
                    _L.fromArray([$Html$Attributes.$class("col-sm-2")
                                 ,$Html$Attributes.style(displayStyle(hide))]),
                    _L.fromArray([$Html.text(loopData)]))]));
    });
-   var view = F2(function (updatesChnlAddress,
-   _v31) {
+   var maxButton = 10;
+   var buttonVal = F2(function (list,
+   num) {
       return function () {
-         switch (_v31.ctor)
+         var h = $List.head(A2($List.drop,
+         num - 1,
+         list));
+         return function () {
+            switch (h.ctor)
+            {case "Just": return h._0;
+               case "Nothing": return false;}
+            _U.badCase($moduleName,
+            "between lines 31 and 33");
+         }();
+      }();
+   });
+   var buttonListToggle = F2(function (list,
+   num) {
+      return A2($Basics._op["++"],
+      A2($List.take,num - 1,list),
+      A2($Basics._op["++"],
+      _L.fromArray([$Basics.not(A2(buttonVal,
+      list,
+      num))]),
+      A2($List.take,
+      maxButton - num,
+      A2($List.drop,num,list))));
+   });
+   var updateModel = F2(function (update,
+   _v3) {
+      return function () {
+         switch (_v3.ctor)
          {case "_Tuple4":
-            switch (_v31._1.ctor)
+            switch (_v3._1.ctor)
               {case "_Tuple5":
-                 switch (_v31._2.ctor)
-                   {case "_Tuple5":
-                      switch (_v31._3.ctor)
-                        {case "_Tuple7":
-                           switch (_v31._3._6.ctor)
-                             {case "_Tuple5":
-                                return A2($Html.div,
-                                  _L.fromArray([]),
-                                  _L.fromArray([A2($Html.div,
-                                               _L.fromArray([$Html$Attributes.$class("container")]),
-                                               _L.fromArray([A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([addButton
-                                                                         ,backButton]))
-                                                            ,A2($Html.br,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([]))
-                                                            ,A2($Html.form,
-                                                            _L.fromArray([$Html$Attributes.$class("form-inline")]),
-                                                            _L.fromArray([A6(formGroup,
-                                                                         "Wheel 1",
-                                                                         "wheel1input",
-                                                                         _v31._1._1,
-                                                                         updatesChnlAddress,
-                                                                         UpdateField,
-                                                                         myStyle)
-                                                                         ,A6(formGroup,
-                                                                         "Wheel 2",
-                                                                         "wheel2input",
-                                                                         _v31._1._2,
-                                                                         updatesChnlAddress,
-                                                                         Circle2Field,
-                                                                         myStyle)
-                                                                         ,A6(formGroup,
-                                                                         "Wheel 3",
-                                                                         "wheel3input",
-                                                                         _v31._1._3,
-                                                                         updatesChnlAddress,
-                                                                         Circle3Field,
-                                                                         myStyle)
-                                                                         ,A6(formGroup,
-                                                                         "Wheel Ans",
-                                                                         "wheelAnsInput",
-                                                                         _v31._1._4,
-                                                                         updatesChnlAddress,
-                                                                         Circle4Field,
-                                                                         myStyle)]))
-                                                            ,A2($Html.br,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([]))
-                                                            ,A3(wheelOnlyRow,
-                                                            1,
-                                                            "Wheel 1",
-                                                            _v31._1._1)
-                                                            ,A7(wheelRow,
-                                                            2,
-                                                            "Wheel 2",
-                                                            "Loop 2",
-                                                            _v31._1._2,
-                                                            $Basics.toString(_v31._3._1),
-                                                            ShowLoop2,
-                                                            _v31._2._1)
-                                                            ,A7(wheelRow,
-                                                            3,
-                                                            "Wheel 3",
-                                                            "Loop 3",
-                                                            _v31._1._3,
-                                                            $Basics.toString(_v31._3._2),
-                                                            ShowLoop3,
-                                                            _v31._2._2)
-                                                            ,A7(wheelRow,
-                                                            4,
-                                                            "Wheel Ans",
-                                                            "Loop Ans",
-                                                            _v31._1._4,
-                                                            $Basics.toString(_v31._3._3),
-                                                            ShowLoopAns,
-                                                            _v31._2._3)]))
-                                               ,A2($Html.br,
-                                               _L.fromArray([]),
-                                               _L.fromArray([]))
-                                               ,A2($Html.div,
-                                               _L.fromArray([$Html$Attributes.$class("container")]),
-                                               _L.fromArray([A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([A2($Html.div,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                            "2loopPerms - ",
-                                                            $Basics.toString(_v31._3._4)))]))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([A2($Html.div,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                            "3loopPerms - ",
-                                                            $Basics.toString(_v31._3._5)))]))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([A2($Html.div,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([A2($Html.div,
-                                                                         _L.fromArray([$Html$Attributes.style(displayStyle(_v31._2._0))]),
-                                                                         _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                                         "answersPlus - ",
-                                                                         $Basics.toString(_v31._3._6._0)))]))
-                                                                         ,A2(foundAnswerIndicator,
-                                                                         _v31._3._6._1,
-                                                                         _v31._2._0)
-                                                                         ,A2($Html.div,
-                                                                         _L.fromArray([$Html$Attributes.style(displayStyle(_v31._2._0))]),
-                                                                         _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                                         "findAnswers - ",
-                                                                         $Basics.toString(_v31._3._6._1)))]))]))]))
-                                                            ,A2($Html.br,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([$Html.text($Basics.toString(_v31._0))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([$Html.text($Basics.toString(_v31._1._0))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([]),
-                                                            _L.fromArray([$Html.text($Basics.toString(_v31._2._0))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.style(A2($Basics._op["++"],
-                                                            textStyle,
-                                                            displayStyle(false)))]),
-                                                            _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                            "answersPerms - ",
-                                                            $Basics.toString(_v31._3._6._2)))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.style(A2($Basics._op["++"],
-                                                            textStyle,
-                                                            displayStyle(false)))]),
-                                                            _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                            "displayAnswer - ",
-                                                            $Basics.toString(_v31._3._6._3)))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.style(A2($Basics._op["++"],
-                                                            textStyle,
-                                                            displayStyle(_v31._2._0)))]),
-                                                            _L.fromArray([$Html.text(A2($Basics._op["++"],
-                                                            "lazyAnswer - ",
-                                                            $Basics.toString(_v31._3._6._4)))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([$Html.text($Basics.toString(_v31._0))]))
-                                                            ,A2($Html.div,
-                                                            _L.fromArray([$Html$Attributes.$class("row")]),
-                                                            _L.fromArray([]))]))]));}
-                             break;}
-                        break;}
-                   break;}
+                 return function () {
+                      var tailHistory = A2($Maybe.withDefault,
+                      _L.fromArray([]),
+                      $List.tail(_v3._0));
+                      var createModel = F3(function (_v14,
+                      buttonStates,
+                      forward) {
+                         return function () {
+                            switch (_v14.ctor)
+                            {case "_Tuple5":
+                               return function () {
+                                    var inputs = {ctor: "_Tuple5"
+                                                 ,_0: _v14._0
+                                                 ,_1: _v14._1
+                                                 ,_2: _v14._2
+                                                 ,_3: _v14._3
+                                                 ,_4: _v14._4};
+                                    var ansLoop = $PuzzleModule.makeAnsLoop(_v14._4);
+                                    var thrLoop = $PuzzleModule.makeThrLoop(_v14._3);
+                                    var secLoop = $PuzzleModule.makeSecLoop(_v14._2);
+                                    var answers = $PuzzleModule.wheelPositionFromString(_v14._4);
+                                    var first = $PuzzleModule.wheelPositionFromString(_v14._1);
+                                    var newCalcs = {ctor: "_Tuple7"
+                                                   ,_0: first
+                                                   ,_1: secLoop
+                                                   ,_2: thrLoop
+                                                   ,_3: ansLoop
+                                                   ,_4: A2($PuzzleModule.twoWheelPerms,
+                                                   first,
+                                                   secLoop)
+                                                   ,_5: A3($PuzzleModule.threeLoopPerms,
+                                                   first,
+                                                   secLoop,
+                                                   thrLoop)
+                                                   ,_6: {ctor: "_Tuple5"
+                                                        ,_0: A3($PuzzleModule.answersPlusPerm,
+                                                        first,
+                                                        secLoop,
+                                                        thrLoop)
+                                                        ,_1: A4($PuzzleModule.findSpecificAnswer,
+                                                        first,
+                                                        secLoop,
+                                                        thrLoop,
+                                                        ansLoop)
+                                                        ,_2: A3($PuzzleModule.answersPermsPlusList,
+                                                        first,
+                                                        secLoop,
+                                                        thrLoop)
+                                                        ,_3: A4($PuzzleModule.displaySpecificAnswers,
+                                                        first,
+                                                        secLoop,
+                                                        thrLoop,
+                                                        answers)
+                                                        ,_4: A4($PuzzleModule.findAnswerLazy3,
+                                                        first,
+                                                        secLoop,
+                                                        thrLoop,
+                                                        ansLoop)}};
+                                    var newHistory = _U.eq(forward,
+                                    true) ? A2($List._op["::"],
+                                    {ctor: "_Tuple2"
+                                    ,_0: inputs
+                                    ,_1: buttonStates},
+                                    _v3._0) : tailHistory;
+                                    return {ctor: "_Tuple4"
+                                           ,_0: newHistory
+                                           ,_1: inputs
+                                           ,_2: buttonStates
+                                           ,_3: newCalcs};
+                                 }();}
+                            _U.badCase($moduleName,
+                            "between lines 456 and 476");
+                         }();
+                      });
+                      var $ = A2($Maybe.withDefault,
+                      {ctor: "_Tuple2"
+                      ,_0: initialInputs
+                      ,_1: initialStates},
+                      $List.head(_v3._0)),
+                      inputs = $._0,
+                      states = $._1;
+                      var newCount = _v3._1._0 + 1;
+                      return function () {
+                         switch (update.ctor)
+                         {case "Back":
+                            return A3(createModel,
+                              inputs,
+                              states,
+                              false);
+                            case "Circle1Field":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: update._0
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              _v3._2,
+                              true);
+                            case "Circle2Field":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: update._0
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              _v3._2,
+                              true);
+                            case "Circle3Field":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: update._0
+                              ,_4: _v3._1._4},
+                              _v3._2,
+                              true);
+                            case "Circle4Field":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: update._0},
+                              _v3._2,
+                              true);
+                            case "ShowAns":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,1),
+                              true);
+                            case "ShowLoop2":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,2),
+                              true);
+                            case "ShowLoop3":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,3),
+                              true);
+                            case "ShowLoopAns":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,4),
+                              true);
+                            case "ShowPerms2":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,5),
+                              true);
+                            case "ShowPerms3":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,6),
+                              true);
+                            case "ShowState":
+                            return A3(createModel,
+                              {ctor: "_Tuple5"
+                              ,_0: newCount
+                              ,_1: _v3._1._1
+                              ,_2: _v3._1._2
+                              ,_3: _v3._1._3
+                              ,_4: _v3._1._4},
+                              A2(buttonListToggle,_v3._2,7),
+                              true);}
+                         _U.badCase($moduleName,
+                         "between lines 478 and 500");
+                      }();
+                   }();}
               break;}
          _U.badCase($moduleName,
-         "between lines 245 and 334");
+         "between lines 449 and 500");
       }();
    });
    var updateModelLift = A3($Signal.foldp,
    updateModel,
    initialModelState,
    updatesChnl.signal);
+   var view = F2(function (updatesChnlAddress,
+   _v26) {
+      return function () {
+         switch (_v26.ctor)
+         {case "_Tuple4":
+            switch (_v26._1.ctor)
+              {case "_Tuple5":
+                 switch (_v26._3.ctor)
+                   {case "_Tuple7":
+                      switch (_v26._3._6.ctor)
+                        {case "_Tuple5":
+                           return A2($Html.div,
+                             _L.fromArray([]),
+                             _L.fromArray([A2($Html.div,
+                                          _L.fromArray([$Html$Attributes.$class("container")]),
+                                          _L.fromArray([A2($Html.div,
+                                                       _L.fromArray([$Html$Attributes.$class("row")]),
+                                                       _L.fromArray([A2($Html.h2,
+                                                       _L.fromArray([]),
+                                                       _L.fromArray([$Html.text("Elm Calculations")]))]))
+                                                       ,A2($Html.div,
+                                                       _L.fromArray([$Html$Attributes.$class("row")]),
+                                                       _L.fromArray([A2($Html.div,
+                                                                    _L.fromArray([$Html$Attributes.$class("btn-group")]),
+                                                                    _L.fromArray([perms2Button
+                                                                                 ,perms3Button
+                                                                                 ,answersButton]))
+                                                                    ,A2($Html.div,
+                                                                    _L.fromArray([$Html$Attributes.$class("btn-group")
+                                                                                 ,$Html$Attributes.style(_L.fromArray([{ctor: "_Tuple2"
+                                                                                                                       ,_0: "margin-left"
+                                                                                                                       ,_1: "5px"}]))]),
+                                                                    _L.fromArray([backButton
+                                                                                 ,stateButton]))]))
+                                                       ,A2($Html.br,
+                                                       _L.fromArray([]),
+                                                       _L.fromArray([]))
+                                                       ,A2($Html.form,
+                                                       _L.fromArray([$Html$Attributes.$class("form-inline")]),
+                                                       _L.fromArray([A6(formGroup,
+                                                                    "Wheel 1",
+                                                                    "wheel1input",
+                                                                    _v26._1._1,
+                                                                    updatesChnlAddress,
+                                                                    Circle1Field,
+                                                                    myStyle)
+                                                                    ,A6(formGroup,
+                                                                    "Wheel 2",
+                                                                    "wheel2input",
+                                                                    _v26._1._2,
+                                                                    updatesChnlAddress,
+                                                                    Circle2Field,
+                                                                    myStyle)
+                                                                    ,A6(formGroup,
+                                                                    "Wheel 3",
+                                                                    "wheel3input",
+                                                                    _v26._1._3,
+                                                                    updatesChnlAddress,
+                                                                    Circle3Field,
+                                                                    myStyle)
+                                                                    ,A6(formGroup,
+                                                                    "Wheel Ans",
+                                                                    "wheelAnsInput",
+                                                                    _v26._1._4,
+                                                                    updatesChnlAddress,
+                                                                    Circle4Field,
+                                                                    myStyle)]))
+                                                       ,A2($Html.br,
+                                                       _L.fromArray([]),
+                                                       _L.fromArray([]))
+                                                       ,A3(wheelOnlyRow,
+                                                       1,
+                                                       "Wheel 1",
+                                                       _v26._1._1)
+                                                       ,A6(wheelRow,
+                                                       2,
+                                                       "Wheel 2",
+                                                       "Loop 2",
+                                                       _v26._1._2,
+                                                       $Basics.toString(_v26._3._1),
+                                                       ShowLoop2)(A2(buttonVal,
+                                                       _v26._2,
+                                                       2))
+                                                       ,A6(wheelRow,
+                                                       3,
+                                                       "Wheel 3",
+                                                       "Loop 3",
+                                                       _v26._1._3,
+                                                       $Basics.toString(_v26._3._2),
+                                                       ShowLoop3)(A2(buttonVal,
+                                                       _v26._2,
+                                                       3))
+                                                       ,A6(wheelRow,
+                                                       4,
+                                                       "Wheel Ans",
+                                                       "Loop Ans",
+                                                       _v26._1._4,
+                                                       $Basics.toString(_v26._3._3),
+                                                       ShowLoopAns)(A2(buttonVal,
+                                                       _v26._2,
+                                                       4))]))
+                                          ,A2($Html.br,
+                                          _L.fromArray([]),
+                                          _L.fromArray([]))
+                                          ,A2($Html.div,
+                                          _L.fromArray([$Html$Attributes.$class("container")]),
+                                          _L.fromArray([A2(infoRow,
+                                                       "2loopPerms",
+                                                       $Basics.toString(_v26._3._4))(A2(buttonVal,
+                                                       _v26._2,
+                                                       5))
+                                                       ,A2(infoRow,
+                                                       "3loopPerms - ",
+                                                       $Basics.toString(_v26._3._5))(A2(buttonVal,
+                                                       _v26._2,
+                                                       6))
+                                                       ,A2(infoRow,
+                                                       "answersPlus - ",
+                                                       $Basics.toString(_v26._3._6._0))(A2(buttonVal,
+                                                       _v26._2,
+                                                       1))
+                                                       ,A2($Html.br,
+                                                       _L.fromArray([]),
+                                                       _L.fromArray([]))
+                                                       ,A2($Html.div,
+                                                       _L.fromArray([$Html$Attributes.$class("row")
+                                                                    ,$Html$Attributes.style(displayStyle(A2(buttonVal,
+                                                                    _v26._2,
+                                                                    1)))]),
+                                                       _L.fromArray([A2($Html.div,
+                                                                    _L.fromArray([$Html$Attributes.$class("col-sm-12")]),
+                                                                    _L.fromArray([foundAnswerIndicator(_v26._3._6._1)(A2(buttonVal,
+                                                                    _v26._2,
+                                                                    1))]))
+                                                                    ,A2($Html.div,
+                                                                    _L.fromArray([$Html$Attributes.$class("col-sm-2")]),
+                                                                    _L.fromArray([$Html.text("findAnswers - ")]))
+                                                                    ,A2($Html.div,
+                                                                    _L.fromArray([$Html$Attributes.$class("col-sm-8")]),
+                                                                    _L.fromArray([$Html.text($Basics.toString(_v26._3._6._1))]))]))
+                                                       ,A2($Html.br,
+                                                       _L.fromArray([]),
+                                                       _L.fromArray([]))
+                                                       ,A2(infoRow,
+                                                       "lazyAnswer - ",
+                                                       $Basics.toString(_v26._3._6._4))(A2(buttonVal,
+                                                       _v26._2,
+                                                       1))
+                                                       ,A2(infoRow,
+                                                       A2($Basics._op["++"],
+                                                       "State change count: ",
+                                                       $Basics.toString(_v26._1._0)),
+                                                       $Basics.toString(_v26._0))(A2(buttonVal,
+                                                       _v26._2,
+                                                       7))
+                                                       ,A2($Html.div,
+                                                       _L.fromArray([$Html$Attributes.style(A2($Basics._op["++"],
+                                                       textStyle,
+                                                       displayStyle(false)))]),
+                                                       _L.fromArray([$Html.text(A2($Basics._op["++"],
+                                                       "answersPerms - ",
+                                                       $Basics.toString(_v26._3._6._2)))]))
+                                                       ,A2($Html.div,
+                                                       _L.fromArray([$Html$Attributes.style(A2($Basics._op["++"],
+                                                       textStyle,
+                                                       displayStyle(false)))]),
+                                                       _L.fromArray([$Html.text(A2($Basics._op["++"],
+                                                       "displayAnswer - ",
+                                                       $Basics.toString(_v26._3._6._3)))]))
+                                                       ,A2($Html.div,
+                                                       _L.fromArray([$Html$Attributes.$class("row")]),
+                                                       _L.fromArray([]))]))]));}
+                        break;}
+                   break;}
+              break;}
+         _U.badCase($moduleName,
+         "between lines 283 and 386");
+      }();
+   });
    var viewLift = A2($Signal.map,
    view(updatesChnl.address),
    updateModelLift);
    var main = viewLift;
    _elm.Main.values = {_op: _op
+                      ,buttonVal: buttonVal
+                      ,maxButton: maxButton
+                      ,buttonListToggle: buttonListToggle
                       ,NoOp: NoOp
                       ,Add: Add
                       ,Remove: Remove
                       ,Back: Back
                       ,UpdateField: UpdateField
+                      ,Circle1Field: Circle1Field
                       ,Circle2Field: Circle2Field
                       ,Circle3Field: Circle3Field
                       ,Circle4Field: Circle4Field
                       ,ShowLoop2: ShowLoop2
                       ,ShowLoop3: ShowLoop3
                       ,ShowLoopAns: ShowLoopAns
+                      ,ShowPerms2: ShowPerms2
+                      ,ShowPerms3: ShowPerms3
+                      ,ShowAns: ShowAns
+                      ,ShowLazyAns: ShowLazyAns
+                      ,ShowState: ShowState
                       ,updatesChnl: updatesChnl
                       ,buttonClassList: buttonClassList
-                      ,addButton: addButton
+                      ,answersButton: answersButton
                       ,backButton: backButton
+                      ,stateButton: stateButton
+                      ,perms2Button: perms2Button
+                      ,perms3Button: perms3Button
+                      ,uiButton: uiButton
                       ,showLoopButton: showLoopButton
                       ,inputField: inputField
                       ,inputField2: inputField2
@@ -5013,6 +5069,7 @@ Elm.Main.make = function (_elm) {
                       ,myStyle: myStyle
                       ,textStyle: textStyle
                       ,displayStyle: displayStyle
+                      ,infoRow: infoRow
                       ,main: main
                       ,viewLift: viewLift
                       ,view: view
@@ -14100,12 +14157,12 @@ Elm.PuzzleModule.make = function (_elm) {
       }();
    };
    var strToNum = function (s) {
-      return resToNum($String.toInt(s));
+      return resToNum($String.toInt($String.trim(s)));
    };
    var wheelPositionFromString = function (s) {
-      return A2($List.map,
-      strToNum,
-      A2($String.split,",",s));
+      return $List.map(strToNum)(A2($String.split,
+      ",",
+      s));
    };
    var generateWheelLoop = function (s) {
       return createWheelLoop(wheelPositionFromString(s));
